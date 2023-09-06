@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simulador de Parcelas</title>
+</head>
+<body>
+    <h1>Simulador de Parcelas</h1>
+
+    <script>
+        // Usando a estrutura "for" para repetir um bloco de instruções um número fixo de vezes
+        var quantidadeParcelas = parseInt(prompt("Digite a quantidade de parcelas:"));
+
+        for (var i = 1; i <= quantidadeParcelas; i++) {
+            var valorParcela = calcularValorParcela(i);
+            console.log("Parcela " + i + ": R$" + valorParcela.toFixed(2));
+        }
+
+        // Função para calcular o valor da parcela (pode ser substituída pela lógica específica)
+        function calcularValorParcela(parcelaNumero) {
+            // Aqui você pode adicionar a lógica para calcular o valor da parcela com base no número da parcela
+            // Neste exemplo, usamos um valor fixo de R$ 100 por parcela.
+            return 100;
+        }
+
+        // Usando a estrutura "while" para repetir até que uma condição deixe de ser cumprida
+        var continuar = true;
+
+        while (continuar) {
+            var resposta = prompt("Deseja continuar? (s/n)");
+
+            if (resposta.toLowerCase() === 'n') {
+                continuar = false;
+            } else if (resposta.toLowerCase() === 's') {
+                quantidadeParcelas++;
+                var valorParcela = calcularValorParcela(quantidadeParcelas);
+                console.log("Parcela " + quantidadeParcelas + ": R$" + valorParcela.toFixed(2));
+            } else {
+                console.log("Resposta inválida. Por favor, digite 's' para continuar ou 'n' para sair.");
+            }
+        }
+    </script>
+</body>
+</html>
